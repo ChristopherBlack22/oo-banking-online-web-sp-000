@@ -26,7 +26,7 @@ class Transfer
   end 
   
   def reverse_transfer
-      
+    !execute_transfer  
   end
   
 end
