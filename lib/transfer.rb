@@ -1,6 +1,6 @@
 require "pry"
 class Transfer
-  attr_accessor :sender, :receiver, :amount, :status 
+  attr_accessor :sender, :receiver, :amount, :status, :transferred_amount
   
   def initialize(sender, receiver, amount)
     @sender = sender
@@ -17,7 +17,8 @@ class Transfer
     if valid? && @sender.balance >= @amount
       @sender.deposit(0-@amount)
       @receiver.deposit(@amount)
-     # @amount = 0
+      @transferred_amount = @amount 
+      @amount = 0
       @status = "complete"
     else 
       @status = "rejected"
@@ -26,7 +27,9 @@ class Transfer
   end 
   
   def reverse_transfer
-   # if @status ==
+   if @status == "complete"
+     @sender.deposit(@transferred_amount)
+     @receiver.deposit(0-@transferred_amount)
   end
   
 end
