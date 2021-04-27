@@ -17,7 +17,7 @@ class Transfer
     if valid? && @sender.balance >= @amount
       @sender.deposit(0-@amount)
       @receiver.deposit(@amount)
-      @amount = 0
+     # @amount = 0
       @status = "complete"
     else 
       @status = "rejected"
@@ -26,7 +26,7 @@ class Transfer
   end 
   
   def reverse_transfer
-    execute_transaction 
+   # if @status ==
   end
   
 end
