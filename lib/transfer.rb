@@ -15,16 +15,14 @@ class Transfer
   
   def execute_transaction
     if @sender.valid?
-      #binding.pry 
       @sender.deposit(0-@amount)
       @receiver.deposit(@amount)
       @amount = 0
       @status = "complete"
     else 
       @status = "rejected"
-     # "Transaction rejected. Please check your account balance."
+      "Transaction rejected. Please check your account balance."
     end 
-    "Transaction rejected. Please check your account balance." if @status == "rejected"
   end 
   
   def reverse_transfer
