@@ -24,7 +24,7 @@ class Transfer
       @status = "rejected"
      # "Transaction rejected. Please check your account balance."
     end 
-    "Transaction rejected. Please check your account balance" if @status == "rejected"
+    "Transaction rejected. Please check your account balance." if @status == "rejected"
   end 
   
   def reverse_transfer
