@@ -14,7 +14,7 @@ class Transfer
   end 
   
   def execute_transaction
-    if @sender.valid? && @sender.balance >= @amount
+    if valid? && @sender.balance >= @amount
       @sender.deposit(0-@amount)
       @receiver.deposit(@amount)
       @amount = 0
